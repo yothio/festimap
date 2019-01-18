@@ -68,3 +68,5 @@ gem 'foreman'
 
 
 gem 'devise'
+
+gem 'ridgepole'
