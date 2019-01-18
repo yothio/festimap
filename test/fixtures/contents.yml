@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: one
+  user: one
+  name: MyString
+  body: MyText
+  image_path: MyString
+  is_comment_visible: false
+
+two:
+  event: two
+  user: two
+  name: MyString
+  body: MyText
+  image_path: MyString
+  is_comment_visible: false

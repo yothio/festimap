@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  date: 2019-01-18
+  user_id: one
+  is_allow_comment: false
+  map: MyText
+
+two:
+  name: MyString
+  date: 2019-01-18
+  user_id: two
+  is_allow_comment: false
+  map: MyText

@@ -65,3 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # webpackとrails serverのプロセスを同時に動かす
 gem 'foreman'
+
+# ユーザー登録・ログインなどを管理する
+gem 'devise'
