@@ -68,3 +68,6 @@ gem 'foreman'
 
 # ユーザー登録・ログインなどを管理する
 gem 'devise'
+
+# 日本語対応
+gem 'rails-i18n', '~> 5.1'
