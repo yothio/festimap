@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_150810) do
+ActiveRecord::Schema.define(version: 2019_01_18_151306) do
 
   create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "event_id"
@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 2019_01_18_150810) do
     t.boolean "is_comment_visible"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "group_id"
     t.index ["event_id"], name: "index_contents_on_event_id"
+    t.index ["group_id"], name: "index_contents_on_group_id"
     t.index ["user_id"], name: "index_contents_on_user_id"
   end
 
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_01_18_150810) do
   end
 
   add_foreign_key "contents", "events"
+  add_foreign_key "contents", "groups"
   add_foreign_key "contents", "users"
   add_foreign_key "events", "users"
   add_foreign_key "likes", "contents"
