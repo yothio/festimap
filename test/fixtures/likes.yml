@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: one
+  session_id: 1
+  type: 
+
+two:
+  content: two
+  session_id: 1
+  type: 
