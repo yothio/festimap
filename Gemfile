@@ -68,3 +68,8 @@ gem 'foreman'
 
 # ユーザー登録・ログインなどを管理する
 gem 'devise'
+
+# Materializeの導入
+gem 'jquery-rails'
+gem 'materialize-sass'
+gem 'material_icons'
