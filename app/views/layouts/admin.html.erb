@@ -14,7 +14,7 @@
   <header>
     <nav role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo center">Festimap</a>
+        <%= link_to 'Festrimap', admin_users_path, class: 'brand-logo center' %>
         <ul class="right hide-on-med-and-down">
           <li>
             <%= link_to destroy_user_session_path ,class: 'waves-effect waves-light' do %>  
@@ -63,9 +63,6 @@
     <% elsif alert %>
       <p class="alert"><%= alert %></p>
     <% end %>
-    <li>
-      <%= link_to 'LOGOUT', destroy_user_session_path, :method => :delete %>
-    </li>
 
     <%= yield %>
 
