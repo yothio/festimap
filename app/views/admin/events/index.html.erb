@@ -7,7 +7,7 @@
           <span class="card-title"><%= event.name %></span>
         </div>
         <div class="card-content">
-          <p>イベントの詳細はこちらです！</p>
+          <p><%= event.description %></p>
         </div>
         <div class="card-action">
           <%= link_to  "詳細をみる", admin_event_path(event) %>
