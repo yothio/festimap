@@ -18,6 +18,10 @@ class Admin::EventsController < Admin::ApplicationController
     end
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   private
     def event_params
       params.require(:event).permit(:name, :date, :is_allow_comment, :map)
