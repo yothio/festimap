@@ -15,21 +15,45 @@
     <nav role="navigation">
       <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo center">Festimap</a>
-        <ul id='nav-mobile' class='left hide-on-med-and-down'>
-          <li>test</li>
-        </ul>
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
         <ul class="right hide-on-med-and-down">
-          <li><a href="#">Navbar Link</a></li>
+          <li>
+            <%= link_to destroy_user_session_path ,class: 'waves-effect waves-light' do %>  
+              <i class="fa fa-sign-out"></i> ログアウト
+            <% end %>
+          </li>
         </ul>
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars"></i></a>
       </div>
     </nav>
     <ul id='slide-out' class='sidenav sidenav-fixed'>
-      <li>test Link</li>
-      <li>test Link</li>
+      <li>
+        <%= link_to admin_events_path ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> イベント一覧
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '#' ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> メニューダミー
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '#' ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> メニューダミー
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '#' ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> メニューダミー
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '#' ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> メニューダミー
+        <% end %>
+      </li>
+       <li>
+          <a class="btn waves-effect waves-teal">Send</a>
+      </li>
     </ul>
   </header>
 
