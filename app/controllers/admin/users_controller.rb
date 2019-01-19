@@ -1,5 +1,4 @@
-class Admin::UsersController < ApplicationController
-  layout 'admin'
+class Admin::UsersController < Admin::ApplicationController
   def index
     @user = current_user
   end

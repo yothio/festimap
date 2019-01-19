@@ -6,101 +6,32 @@
         <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
       </div>
       <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+        <%= link_to  "You Owner New Event", new_admin_event_path, id: 'download-button', class: 'btn-large waves-effect waves-light teal lighten-1' %>
       </div>
       <br><br>
       <div id="masonry-grid" class="row">
-        <div class="col s6 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="background1.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href='#'>This is a link</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s6 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="background1.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href='#'>This is a link</a>
+        <% @user.events.each do |event|%>
+        event.name
+        evemt.date
+        event.user_id
+          <div class="col s6 m4">
+            <div class="card">
+              <div class="card-image">
+                <img src="background1.jpg">
+                <span class="card-title"><%= event.name %></span>
+              </div>
+              <div class="card-content">
+                <p>I am a very simple card. I am good at containing small bits of information.
+                I am convenient because I require little markup to use effectively.</p>
+              </div>
+              <div class="card-action">
+                <a href="#">This is a link</a>
+                <a href='#'>This is a link</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col s6 m4">
-          <div class="card">
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href='#'>This is a link</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s6 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="background1.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href='#'>This is a link</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s6 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="background1.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href='#'>This is a link</a>
-            </div>
-          </div>
-        </div>
-        <div class="col s6 m4">
-          <div class="card">
-            <div class="card-image">
-              <img src="background1.jpg">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href='#'>This is a link</a>
-            </div>
-          </div>
-        </div>
+        <% end %>
+        
       </div>
     </div>
   </div>
