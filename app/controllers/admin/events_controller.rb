@@ -1,5 +1,4 @@
-class Admin::EventsController < ApplicationController
-  layout 'admin'
+class Admin::EventsController < Admin::ApplicationController
 
   def index
     @events = Event.all
