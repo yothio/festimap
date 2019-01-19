@@ -5,5 +5,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :events
+    resources :users
+  end
+
+  devise_scope :users do
+    get 'logout' => 'devise/sessions#destroy'
   end
 end

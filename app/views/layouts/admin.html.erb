@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Festimap</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <header>
+    <nav role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo center">Festimap</a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <%= link_to destroy_user_session_path ,class: 'waves-effect waves-light' do %>  
+              <i class="fa fa-sign-out"></i> ログアウト
+            <% end %>
+          </li>
+        </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="fa fa-bars"></i></a>
+      </div>
+    </nav>
+    <ul id='slide-out' class='sidenav sidenav-fixed'>
+      <li>
+        <%= link_to admin_events_path ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> イベント一覧
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '#' ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> メニューダミー
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '#' ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> メニューダミー
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '#' ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> メニューダミー
+        <% end %>
+      </li>
+      <li>
+        <%= link_to '#' ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> メニューダミー
+        <% end %>
+      </li>
+       <li>
+          <a class="btn waves-effect waves-teal">Send</a>
+      </li>
+    </ul>
+  </header>
+
+  <main>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <li>
+      <%= link_to 'LOGOUT', destroy_user_session_path, :method => :delete %>
+    </li>
+
+    <%= yield %>
+
+  </main>
+
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Company Bio</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, {});
+  });
+</script>
+
+<!-- スタイル追記 -->
+<style>
+  header,
+  main,
+  footer {
+    padding-left: 300px;
+  }
+
+  @media only screen and (max-width : 992px) {
+
+    header,
+    main,
+    footer {
+      padding-left: 0;
+    }
+  }
+</style>
