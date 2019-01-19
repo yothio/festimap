@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_18_151716) do
+ActiveRecord::Schema.define(version: 2019_01_19_135410) do
 
   create_table "contents", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "event_id"
@@ -40,10 +40,12 @@ ActiveRecord::Schema.define(version: 2019_01_18_151716) do
     t.string "name"
     t.date "date"
     t.bigint "user_id"
-    t.boolean "is_allow_comment"
+    t.boolean "is_allow_comment", default: true
     t.text "map"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "begin_time"
+    t.time "end_time"
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
