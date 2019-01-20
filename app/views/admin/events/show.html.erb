@@ -13,7 +13,7 @@
 </div>
 <%= link_to  "新しいコンテンツを作成しよう", new_admin_event_content_path(@event.id), id: 'download-button', class: 'btn-large waves-effect waves-light teal lighten-1' %>
 <div id="masonry-grid" class="row">
-  <% @event.event_contents.each do |content| %>
+  <% @event.contents.each do |content| %>
     <p><%= content %></p>
   <% end %>
 </div>

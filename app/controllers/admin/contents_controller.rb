@@ -11,9 +11,8 @@ class Admin::ContentsController < Admin::ApplicationController
   def create
     event_id = params[:event_id]
 
-    @content = current_user.contents.new(content_params)
-    @content.attributes = { event_id: event_id}
-    
+    @content = current_user.contents.build(content_params)
+    @content.assign_attributes({event_id: event_id})
     if @content.save
       flash[:success] = "Event Created"
       redirect_to admin_event_path(event_id)
