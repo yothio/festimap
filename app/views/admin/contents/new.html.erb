@@ -1,0 +1,36 @@
+<h1> content new </h1>
+<div class="row">
+  <% @content.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  <%= form_for( @content, url: admin_event_contents_path(params[:event_id]) ) do |f| %>
+    <div class="input-field col s10 m8">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="input-field col s10 m8">
+      <%= f.label :body %>
+      <%= f.text_field :body, class: 'form-control' %>
+    </div>
+
+
+    <div class="input-field col s10 m8">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>File</span>
+          <%= f.file_field :image_path, class: 'dropify' %>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+    </div>
+
+    <%= f.check_box :is_comment_visible, name: 'is_comment_visible', checked: true, class: "filled-in", id: 'fileed-in-box', :as => :boolean %>
+
+    <div class="col s10 m8">
+      <%= f.submit "Submit", class: 'btn', disable_with: 'Submiting...' %>
+    </div>
+  <% end %>
+</div>
