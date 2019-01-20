@@ -1,38 +1,15 @@
   <div class="section no-pad-bot">
     <div class="container">
       <br><br>
-      <h1 class="header center teal-text text-lighten-2">Parallax Template</h1>
+      <h1 class="header center teal-text text-lighten-2">Welocome Festimap</h1>
       <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        <h5 class="header col s12 light">イベントのマップを作って参加者を手助けしよう</h5>
       </div>
       <div class="row center">
-        <%= link_to  "You Owner New Event", new_admin_event_path, id: 'download-button', class: 'btn-large waves-effect waves-light teal lighten-1' %>
+        <%= link_to  "君がイベントのオーナーだ", new_admin_event_path, id: 'download-button', class: 'btn-large waves-effect waves-light teal lighten-1' %>
       </div>
       <br><br>
-      <div id="masonry-grid" class="row">
-        <% @user.events.each do |event|%>
-        event.name
-        evemt.date
-        event.user_id
-          <div class="col s6 m4">
-            <div class="card">
-              <div class="card-image">
-                <img src="background1.jpg">
-                <span class="card-title"><%= event.name %></span>
-              </div>
-              <div class="card-content">
-                <p>I am a very simple card. I am good at containing small bits of information.
-                I am convenient because I require little markup to use effectively.</p>
-              </div>
-              <div class="card-action">
-                <a href="#">This is a link</a>
-                <a href='#'>This is a link</a>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        
-      </div>
+      <%= render partial: "admin/partial/event_card", locals: { events: @user.events } %>
     </div>
   </div>
 
