@@ -1,11 +1,11 @@
 class Admin::ContentsController < Admin::ApplicationController
 
   def index
-    @events = Contents.all
+    @content = Content.all
   end
 
   def new
-    @event = Contents.new
+    @content = Content.new
   end
   
 end

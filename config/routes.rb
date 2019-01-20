@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :events
+    resources :events do
+      resources :contents
+    end
     resources :users
   end
 
