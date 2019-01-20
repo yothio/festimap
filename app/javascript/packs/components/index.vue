@@ -1,12 +1,15 @@
 <template>
   <div>
-    <a href="#" v-for="event in events" class="col s12 m6">
-      <div class="card blue-grey lighten-5">
+    <div class="card blue-grey lighten-5 col s12 m6" v-for="event in events">
+      <a v-bind:href="'/event?id=' + event.id">
         <div class="card-content">
           <span class="card-title">{{ event.name }}</span>
+          <p>{{ event.date }}</p>
+          <p>{{ event.beginTime }} ~ {{ event.endTime }}</p>
+          <p>{{ event.description }}</p>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   </div>
 </template>
 
