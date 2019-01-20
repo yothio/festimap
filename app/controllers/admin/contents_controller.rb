@@ -24,7 +24,7 @@ class Admin::ContentsController < Admin::ApplicationController
   
   private
     def content_params
-      params.require(:content).permit(:name, :body, :image_path)
+      params.require(:content).permit(:name, :body, :image)
     end
   
 end
