@@ -5,7 +5,7 @@
         <div class="card-content">
           <span class="card-title">{{ event.name }}</span>
           <p>{{ event.date }}</p>
-          <p>{{ event.beginTime }} ~ {{ event.endTime }}</p>
+          <p>{{ event.begin_time }} ~ {{ event.end_time }}</p>
           <p>{{ event.description }}</p>
         </div>
       </a>
