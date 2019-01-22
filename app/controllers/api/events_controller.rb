@@ -3,13 +3,8 @@ class Api::EventsController < ApplicationController
     @events = Event.all()
   end
 
-  def event
+  def show
     @event = Event.find_by(id: params[:id])
-    if @event
-      render json: @event, status: :ok
-    end
-    
+    render json: @event, status: :ok if @event.present?
   end
-
-
 end

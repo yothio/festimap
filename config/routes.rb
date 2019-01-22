@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   namespace :api , format: 'json' do
     resources :events
-    get '/event/:id', to: 'events#event'
   end
 
   namespace :admin do

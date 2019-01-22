@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     fetchEvent: function(){
-      axios.get('/api/event/' + this.$route.params.id).then((response) => {
+      axios.get('/api/events/' + this.$route.params.id).then((response) => {
         this.event = response.data;
         let csv = this.event.map;
         var h = "";
