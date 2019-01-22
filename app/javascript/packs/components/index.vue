@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="card blue-grey lighten-5 col s12 m6" v-for="event in events">
-      <a v-bind:href="'/event?id=' + event.id">
+    <div class="card blue-grey lighten-5 col s12 m6" v-for="event in events" v-bind:key="event.id">
+      <a v-bind:href="'/event/' + event.id">
         <div class="card-content">
           <span class="card-title">{{ event.name }}</span>
           <p>{{ event.date }}</p>
-          <p>{{ event.beginTime }} ~ {{ event.endTime }}</p>
+          <p>{{ event.begin_time }} ~ {{ event.end_time }}</p>
           <p>{{ event.description }}</p>
         </div>
       </a>
