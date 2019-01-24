@@ -36,7 +36,7 @@ class Admin::ContentsController < Admin::ApplicationController
     @content = Content.update(content_params)
     if @content.save
       flash[:success] = "Event Created"
-      rrender 'show'
+      render 'show'
     else
       flash[:alert] = "Event failed"
       render 'edit'
