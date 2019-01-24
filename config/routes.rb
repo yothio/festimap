@@ -9,10 +9,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :users
+    resources :groups
     resources :events do
       resources :contents
     end
-    resources :users
   end
 
   devise_scope :users do
