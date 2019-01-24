@@ -81,7 +81,6 @@ export default {
       this.contents.forEach(v => {
         if(v.id == id){
           this.content = v;
-          this.content.body = "testestestest";
         }
       });
       this.showContentDetail = true;
