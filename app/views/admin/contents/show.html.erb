@@ -1,0 +1,21 @@
+<%= @content %>
+<%= @content.name %>
+<%= @content.image %>
+<%= @content.id %>
+
+<% if @content.user == current_user %>
+  <h1><%= link_to '編集',edit_admin_event_content_path(@content)  %></h1>
+<% end %>
+<div id="masonry-grid" class="row">
+  <div class="col s4 m3">
+      <div class="card">
+        <div class="card-image">
+          <p><%= image_tag @content.image.variant(combine_options:{resize:"480x480^",crop:"480x480+0+0",gravity: :center}).processed %></p>
+          <span class="card-title"><%= @content.name %></span>
+        </div>
+        <div class="card-content">
+          <p><%= @content.body %></p>
+        </div>
+      </div>
+  </div>
+</div>

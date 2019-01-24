@@ -33,8 +33,8 @@ class Admin::ContentsController < Admin::ApplicationController
   end
 
   def update
-    @content = Content.update(content_params)
-    if @content.save
+    @content = Content.find(params[:id])
+    if @content.update_attributes(content_params)
       flash[:success] = "Event Created"
       render 'show'
     else
