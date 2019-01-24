@@ -1,8 +1,3 @@
-<%= @content %>
-<%= @content.name %>
-<%= @content.image %>
-<%= @content.id %>
-
 <% if @content.user == current_user %>
   <h1><%= link_to '編集',edit_admin_event_content_path(@content)  %></h1>
 <% end %>
