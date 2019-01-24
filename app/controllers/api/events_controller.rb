@@ -4,7 +4,6 @@ class Api::EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find_by(id: params[:id])
-    render json: @event, status: :ok if @event.present?
+    @event = Event.includes(:contents).find_by(id: params[:id])
   end
 end
