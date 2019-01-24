@@ -2,19 +2,26 @@
 
   <div>
     <h3>{{ event.name }}</h3>
-    <div style='border: 4px solid grey; width: 100%; height: 240px; overflow: scroll; '>
-      <div v-for='row in csv' v-bind:key='row.id' v-bind:style="size">
-        <div v-for='col in row' v-bind:key='col.id'>
-          <div v-if='col == 0' style='width: 24px; height: 24px; float: left'>
+    <div>
+      <div v-for='row in csv' v-bind:key='row.id'>
+        <div class="row" style="margin: 0;">
+        <div v-for='col in row' v-bind:key='col.id' >
+          <div v-if='col == 0' class='col s1' style="margin:1px ">
           </div>
-          <div v-else v-on:click="checkContents( col )" style='border:1px black solid; width: 24px; height: 24px; float: left'>
+          <div v-else v-on:click="checkContents( col )" style='background-color: grey; margin:1px; height: 48px;' class='col s1 ' >
             {{ col }}
           </div>
-        </div>
+         </div>
+       </div> 
       </div>
     </div>
+    <div v-if="showContentDetail">
+      <h4>{{ content.name }}</h4>
+      <hr>
+      <p>{{ content.body }}</p>
+    </div>
   </div>
-
+  
 </template>
 
 <script>
@@ -24,7 +31,10 @@ import axios from 'axios';
 export default {
   data: function(){
     return {
+      showContentDetail: false,
       event: [],
+      contents: [],
+      content: [],
       rnum: 0,
       cnum: 0,
       size: {
@@ -40,7 +50,9 @@ export default {
   methods: {
     fetchEvent: function(){
       axios.get('/api/events/' + this.$route.params.id).then((response) => {
-        this.event = response.data;
+        this.event = response.data.events;
+        this.contents = this.event.contents;
+        console.log(this.contents);
         let csv = this.event.map;
         var h = "";
         if(csv == null || csv == "") {
@@ -65,7 +77,13 @@ export default {
       });
     },
     checkContents: function(id){
-      alert(id);
+      this.content = [];
+      this.contents.forEach(v => {
+        if(v.id == id){
+          this.content = v;
+        }
+      });
+      this.showContentDetail = true;
     }
   }
 }
