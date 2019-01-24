@@ -1,0 +1,19 @@
+<%= link_to '新しいグループを作る', new_admin_group_path %>
+
+<div id="masonry-grid" class="row">
+  <% @groups.each do |group| %>
+  <div class="col s6 m4">
+        <div class="card">
+          <div class="card-image">
+            <%= image_tag  "background1.jpg" %>
+            <span class="card-title"><%= group.name %></span>
+          </div>
+          <div class="card-content">
+          </div>
+          <div class="card-action">
+            <%= link_to  "詳細をみる", admin_group_path(group) %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

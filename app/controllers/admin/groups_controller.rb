@@ -1,13 +1,21 @@
 class Admin::GroupsController < Admin::ApplicationController
 
   def index
-    @groups = current_user.group_users
+    @groups = Group.all
   end
 
   def new
+    @group = Group.new
   end
 
   def create
+    @group = current_user.groups.new(group_params)
+    if @group.save
+      flash[:success] = "Event Created"
+      redirect_to admin_groups_path
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -16,7 +24,7 @@ class Admin::GroupsController < Admin::ApplicationController
 
   private
     def group_params
-      # params.require(:event).permit(:name, :date, :is_allow_comment, :map)
+      params.require(:group).permit(:name)
     end
     
 end
