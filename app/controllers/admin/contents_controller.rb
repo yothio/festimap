@@ -21,6 +21,28 @@ class Admin::ContentsController < Admin::ApplicationController
       render 'new'
     end
   end
+
+  def show
+    @content = Content.find(params[:id])
+  end
+
+  def edit
+    @content = Content.find(params[:id])
+
+    render 'show' unless @content.user == current_user
+  end
+
+  def update
+    @content = Content.find(params[:id])
+    if @content.update_attributes(content_params)
+      flash[:success] = "Event Created"
+      render 'show'
+    else
+      flash[:alert] = "Event failed"
+      render 'edit'
+    end
+  end
+  
   
   private
     def content_params

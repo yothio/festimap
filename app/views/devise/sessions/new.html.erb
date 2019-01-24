@@ -1,26 +1,36 @@
-<h2>Log in</h2>
+<div class="section"></div>
+<center>
+  <div class="section"></div>
+  <h5 class="indigo-text">Please, login into your account</h5>
+  <div class="section"></div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class="container">
+    <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class='row'>
+          <div class="field col s12">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+        <div class='row'>
+          <div class="field col s12">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password" %>
+          </div>
+        </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <label style='float: right;'>
+          <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+        </label>
+        <div class="col s12 btn btn-large waves-effect indigo">
+          <%= f.submit "Log in",style:'color: #fff;' %>
+        </div>
+      <% end %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+<div class="section"></div>
+</center>
 
 <%= render "devise/shared/links" %>

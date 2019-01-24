@@ -15,15 +15,17 @@
 <div id="masonry-grid" class="row">
   <% @event.contents.each do |content| %>
     <div class="col s4 m3">
-      <div class="card">
-        <div class="card-image">
-          <p><%= image_tag content.image %></p>
-          <span class="card-title"><%= content.name %></span>
+      <%= link_to(admin_event_content_path(event_id: params[:id], id: content.id)) do %>
+        <div class="card">
+          <div class="card-image">
+            <p><%= image_tag content.image.variant(combine_options:{resize:"480x480^",crop:"480x480+0+0",gravity: :center}).processed %></p>
+            <span class="card-title"><%= content.name %></span>
+          </div>
+          <div class="card-content">
+            <p><%= content.body %></p>
+          </div>
         </div>
-        <div class="card-content">
-          <p><%= content.body %></p>
-        </div>
-      </div>
+      <% end %>
     </div>
   <% end %>
 </div>
