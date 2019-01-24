@@ -8,6 +8,8 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 </head>
 
 <body>
@@ -27,13 +29,13 @@
     </nav>
     <ul id='slide-out' class='sidenav sidenav-fixed'>
       <li>
-        <%= link_to admin_events_path ,class: 'waves-effect waves-light' do %>  
-          <i class="fa fa-sign-out"></i> イベント一覧
+        <%= link_to admin_users_path ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> トップ画面
         <% end %>
       </li>
       <li>
-        <%= link_to '#' ,class: 'waves-effect waves-light' do %>  
-          <i class="fa fa-sign-out"></i> メニューダミー
+        <%= link_to admin_events_path ,class: 'waves-effect waves-light' do %>  
+          <i class="fa fa-sign-out"></i> イベント一覧
         <% end %>
       </li>
       <li>
