@@ -11,21 +11,28 @@
     </div>
   </div>
 </div>
-<%= link_to  "新しいコンテンツを作成しよう", new_admin_event_content_path(@event.id), id: 'download-button', class: 'btn-large waves-effect waves-light teal lighten-1' %>
 <div id="masonry-grid" class="row">
-  <% @event.contents.each do |content| %>
-    <div class="col s4 m3">
-      <%= link_to(admin_event_content_path(event_id: params[:id], id: content.id)) do %>
+  <div class='row'>
+    <% @event.map.split(',').each_with_index do |item, i| %>
+      <div class='col s1'>
         <div class="card">
           <div class="card-image">
-            <p><%= image_tag content.image.variant(combine_options:{resize:"480x480^",crop:"480x480+0+0",gravity: :center}).processed %></p>
-            <span class="card-title"><%= content.name %></span>
-          </div>
-          <div class="card-content">
-            <p><%= content.body %></p>
+            <% if item == '' %>
+              <%= image_tag  "white.jpeg" %>
+            <% elsif item == '0' %>
+              <%= link_to  "新しいコンテンツを作成しよう", new_admin_event_content_path(event_id: @event.id, event_item_position: i), id: 'download-button', class: 'btn-large waves-effect waves-light teal lighten-1' %>
+            <% else %>
+              <%= link_to(admin_event_content_path(event_id: params[:id], id: item)) do %>
+                <div class="card">
+                  <div class="card-image">
+                    <p><%= image_tag @event.contents.find(item).image.variant(combine_options:{resize:"480x480^",crop:"480x480+0+0",gravity: :center}).processed %></p>   
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
