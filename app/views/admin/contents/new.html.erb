@@ -3,7 +3,7 @@
   <% @content.errors.full_messages.each do |message| %>
     <li><%= message %></li>
   <% end %>
-  <%= form_for( @content, url: admin_event_contents_path(params[:event_id]) ) do |f| %>
+  <%= form_for( @content, url: admin_event_contents_path(params[:event_id] ) ) do |f| %>
     <div class="input-field col s10 m8">
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
@@ -15,6 +15,7 @@
     </div>
 
 
+    <%= f.hidden_field :extraparam, :value => params[:event_item_position] %>
     <div class="input-field col s10 m8">
       <div class="file-field input-field">
         <div class="btn">

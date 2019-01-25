@@ -15,6 +15,11 @@ class Admin::ContentsController < Admin::ApplicationController
     @content.assign_attributes({event_id: event_id})
     if @content.save
       flash[:success] = "Event Created"
+      event = Event.find(event_id)
+      map_ary = event.map.split(',')
+      (map_ary[params[:content][:extraparam].to_i] = @content.id.to_s)
+      event.assign_attributes({map: map_ary.join(',')})
+      event.save
       redirect_to admin_event_path(event_id)
     else
       flash[:alert] = "Event failed"
