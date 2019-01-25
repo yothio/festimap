@@ -24,7 +24,7 @@ class Admin::EventsController < Admin::ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :date, :is_allow_comment, :map)
+      params.require(:event).permit(:name, :date, :is_allow_comment, :map, :thumbnail)
     end
     
 end
