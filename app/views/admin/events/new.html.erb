@@ -2,6 +2,7 @@
 <div class="row">
   <div class="row">
     <%= form_for(@event, url: admin_events_path) do |f| %>
+      <div class=row>
       <div class="input-field col s10 m8">
         <%= f.label :name %>
         <%= f.text_field :name, class: 'form-control' %>
@@ -17,14 +18,27 @@
         <%= f.label :map %>
         <%= f.text_field :map, class: 'form-control' %>
       </div>
+      <div class='col s8'>
+        <% (1..12).each do |i| %>
+          <div class='row'>
+            <% (1..12).each do |j| %>
+              <%= content_tag(:div, "#{ i.to_s + ':' + j.to_s}" ,class: 'col s1 map-cell', name: 'map[]', value: "#{ i.to_s + ':' + j.to_s}") %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
       <div class="col s10 m8">
-        <%= f.submit "Submit", class: 'btn', disable_with: 'Submiting...' %>
+        <%= f.submit "Submit", class: 'btn', id: 'j_sbmit', disable_with: 'Submiting...' %>
       </div>
     <% end %>
   </div>
 </div>
 
 <script>
+  var map_input = $('#event_map');
+  var map_array = [];
+
   $(document).ready(function(){
     $('.datepicker').datepicker();
   });
@@ -32,4 +46,29 @@
   $(document).ready(function(){
     $('.timepicker').timepicker();
   });
+
+  $('.map-cell').click(function() {
+    clickText = $(this).context.textContent;
+
+    if($(this).hasClass("clicked")){ // クリックされた要素がclickedクラスだったら
+      $(this).removeClass("clicked");
+      var index = map_array.indexOf(clickText);
+      if(index >= 0){
+      map_array.splice(index, 1); 
+      }
+    }else{
+      $(this).addClass("clicked");
+      map_array.push(clickText)
+    }
+  });
+
+  $('#j_sbmit').click(function(){
+    map_input.val(map_array)
+  });
 </script>
+<style>
+.clicked{
+  background-color: #f00;
+}
+
+</style>
