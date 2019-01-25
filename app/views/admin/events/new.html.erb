@@ -16,7 +16,7 @@
       
       <div class="input-field col s10 m8">
         <%= f.label :map %>
-        <%= f.text_field :map, class: 'form-control' %>
+        <%= f.text_area :map, class: 'form-control' %>
       </div>
       <div class='col s12 m8'>
         <% (0..11).each do |i| %>
@@ -27,6 +27,7 @@
           </div>
         <% end %>
       </div>
+      
 
       <div class="col s10 m8">
         <%= f.submit "Submit", class: 'btn', id: 'j_sbmit', disable_with: 'Submiting...' %>

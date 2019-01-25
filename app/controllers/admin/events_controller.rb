@@ -19,7 +19,7 @@ class Admin::EventsController < Admin::ApplicationController
     end
   end
   def show
-    @event = Event.find(params[:id])
+    @event = Event.includes(:contents).find(params[:id])
   end
 
   private
