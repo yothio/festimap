@@ -18,11 +18,11 @@
         <%= f.label :map %>
         <%= f.text_field :map, class: 'form-control' %>
       </div>
-      <div class='col s8'>
-        <% (1..12).each do |i| %>
-          <div class='row'>
-            <% (1..12).each do |j| %>
-              <%= content_tag(:div, "#{ i.to_s + ':' + j.to_s}" ,class: 'col s1 map-cell', name: 'map[]', value: "#{ i.to_s + ':' + j.to_s}") %>
+      <div class='col s12 m8'>
+        <% (0..11).each do |i| %>
+          <div class='row map-row'>
+            <% (0..11).each do |j| %>
+              <%= content_tag(:div, "[#{ i.to_s + ',' + j.to_s}]" ,class: 'col s1 map-cell', name: 'map[]', value: "#{ i.to_s + ':' + j.to_s}") %>
             <% end %>
           </div>
         <% end %>
@@ -36,8 +36,15 @@
 </div>
 
 <script>
-  var map_input = $('#event_map');
-  var map_array = [];
+  let map_input = $('#event_map');
+  let map_array = [];
+
+  let maps = Array(12).fill('');
+  for (let index = 0; index < maps.length; index++) {
+    maps[index] = Array(12);
+    
+  }
+
 
   $(document).ready(function(){
     $('.datepicker').datepicker();
@@ -54,21 +61,29 @@
       $(this).removeClass("clicked");
       var index = map_array.indexOf(clickText);
       if(index >= 0){
-      map_array.splice(index, 1); 
+        map_array.splice(index, 1); 
       }
     }else{
       $(this).addClass("clicked");
+      q = clickText.replace('[', '').replace(']', '').split(',')
+      maps[Number(q[0])][ Number(q[1])] = 0
       map_array.push(clickText)
     }
   });
 
   $('#j_sbmit').click(function(){
-    map_input.val(map_array)
+    map_input.val(maps)
   });
 </script>
 <style>
+.map-row{
+  margin: 0px;
+}
 .clicked{
   background-color: #f00;
+}
+.map-cell{
+  margin: 1px 0px;
 }
 
 </style>

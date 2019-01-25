@@ -10,6 +10,7 @@ class Admin::EventsController < Admin::ApplicationController
 
   def create
     @event = current_user.events.new(event_params)
+
     if @event.save
       flash[:success] = "Event Created"
       redirect_to admin_users_path
@@ -17,7 +18,6 @@ class Admin::EventsController < Admin::ApplicationController
       render 'new'
     end
   end
-
   def show
     @event = Event.find(params[:id])
   end
