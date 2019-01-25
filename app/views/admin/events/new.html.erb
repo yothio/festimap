@@ -13,11 +13,24 @@
         <%= f.text_field :date, class: 'datepicker' %>
       </div>
       <%= f.check_box :is_allow_comment, name: 'event_is_allow_comment', checked: true, class: "filled-in", id: 'fileed-in-box', :as => :boolean %>
-      
+    
+      <div class="input-field col s10 m8">
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>File</span>
+            <%= f.file_field :thumbnail, class: 'dropify' %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+  
       <div class="input-field col s10 m8">
         <%= f.label :map %>
         <%= f.text_area :map, class: 'form-control' %>
       </div>
+      
       <div class='col s12 m8'>
         <% (0..11).each do |i| %>
           <div class='row map-row'>
